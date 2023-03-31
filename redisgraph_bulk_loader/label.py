@@ -21,7 +21,7 @@ class Label(EntityFile):
         self.id = 0
 
         for idx, field in enumerate(header):
-            field = field.strip()
+            field = field
             self.column_names[idx] = field
 
         if header[0][0] == "_":

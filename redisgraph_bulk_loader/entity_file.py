@@ -66,7 +66,7 @@ def typed_prop_to_binary(prop_val, prop_type):
     format_str = "=B"
 
     # Remove leading and trailing whitespace
-    prop_val = prop_val.strip()
+    prop_val = prop_val
 
     if prop_val == "":
         # An empty string indicates a NULL property.
@@ -130,7 +130,7 @@ def inferred_prop_to_binary(prop_val):
     format_str = "=B"
 
     # Remove leading and trailing whitespace
-    prop_val = prop_val.strip()
+    prop_val = prop_val
 
     if prop_val == "":
         # An empty string indicates a NULL property.
@@ -266,7 +266,7 @@ class EntityFile(object):
                 )
 
             # Convert the column type.
-            col_type = convert_schema_type(pair[1].upper().strip())
+            col_type = convert_schema_type(pair[1].upper())
 
             # If the column did not have a name but the type requires one, emit an error.
             if len(pair[0]) == 0 and col_type not in (
@@ -287,7 +287,7 @@ class EntityFile(object):
                     Type.END_ID,
                     Type.IGNORE,
                 ):
-                    column_name = pair[0].strip()
+                    column_name = pair[0]
                     self.column_names[idx] = column_name
 
             # ID types may be parsed as strings or integers depending on user specification.
