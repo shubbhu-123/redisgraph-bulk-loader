@@ -68,7 +68,7 @@ def typed_prop_to_binary(prop_val, prop_type):
     # Remove leading and trailing whitespace
     prop_val = prop_val
 
-    if prop_val == "":
+    if prop_val == "" and prop_type != Type.ID_STRING:
         # An empty string indicates a NULL property.
         # TODO This is not allowed in Cypher, consider how to handle it here rather than in-module.
         return struct.pack(format_str, 0)
